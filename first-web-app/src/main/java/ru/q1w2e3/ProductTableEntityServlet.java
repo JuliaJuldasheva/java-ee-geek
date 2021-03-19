@@ -37,7 +37,6 @@ public class ProductTableEntityServlet extends HttpServlet {
         resp.getWriter().println("Price: " + product.getPrice() + "<br>");
     }
 
-
     private Long findProductId(HttpServletRequest req) {
         Long productId = Long.parseLong(req.getPathInfo().replaceAll("/", ""));
         return productId;
