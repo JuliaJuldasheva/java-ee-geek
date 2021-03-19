@@ -1,5 +1,7 @@
 package ru.q1w2e3;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.q1w2e3.persist.Product;
 import ru.q1w2e3.persist.ProductRepository;
 
@@ -13,10 +15,14 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/product/*")
 public class ProductTableEntityServlet extends HttpServlet {
 
+    private static final Logger logger = LoggerFactory.getLogger(ProductTableEntityServlet.class);
+
     private ProductRepository productRepository;
 
     @Override
     public void init() throws ServletException {
+        logger.info("Product Table Entity servlet");
+
         productRepository = (ProductRepository) getServletContext().getAttribute("productRepository");
     }
 
